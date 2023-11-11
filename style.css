@@ -1,0 +1,68 @@
+.disabled{
+    display: none;
+}
+
+#body {
+    background-color: #ddcdc4;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    background-color: #4b3939;
+    height: 4rem;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 0.5rem;
+}
+
+#contenedorProductos {
+    display: flex;
+    justify-content: space-around;
+}
+
+.tarjeta {
+    width: 14rem;
+    height: 23rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.3rem;
+    background-color: #fff;
+    box-shadow: 5px 5px 10px 0 rgba(126, 126, 126, 0.774);
+}
+
+.tarjeta img {
+    height: 10rem;
+    width: 10rem;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    display: flex;
+}
+
+.boton {
+    background-color: rgba(68, 68, 68, 0.774);
+    color: #fff;
+    width: auto;
+    height: 1.7rem;
+    border-radius: 6px;
+    border: rgba(68, 68, 68, 0.774);
+    cursor: pointer;
+}
+
+#contenedorCarrito {
+    background-color: #4b3939;
+    color: #fff;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.vaciarComprar {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
