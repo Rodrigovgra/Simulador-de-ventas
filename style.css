@@ -8,16 +8,42 @@
     font-family: "Roboto", sans-serif;
 }
 
+header {
+    background-color: rgba(68, 68, 68, 0.774);
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1.7fr 0.3fr;
+    box-shadow: 5px 5px 10px 0 rgba(126, 126, 126, 0.774);
+}
+
 h1 {
     display: flex;
+    justify-content: center;
+    padding-left: 170px;
+}
+
+.headerBtn {
+    display: flex;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+.btn {
+    background-color: rgba(99, 99, 99, 0.774);
     color: #fff;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    border: none
+}
+
+.numero {
+    border-radius: .5rem;
     background-color: #4b3939;
-    height: 4rem;
-    text-transform: uppercase;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 0.5rem;
+    color: #fff;
 }
 
 #contenedorProductos {
@@ -34,6 +60,7 @@ h1 {
     border-radius: 0.3rem;
     background-color: #fff;
     box-shadow: 5px 5px 10px 0 rgba(126, 126, 126, 0.774);
+    
 }
 
 .tarjeta img {
@@ -55,14 +82,29 @@ h1 {
 }
 
 #contenedorCarrito {
-    background-color: #4b3939;
-    color: #fff;
+    /* background-color: #4b3939; */
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 700;
+    height: auto;
     width: 50%;
+    border-radius: .25rem;
     margin: 0 auto;
+    /* box-shadow: 5px 5px 10px 0 rgba(126, 126, 126, 0.774); */
 }
 
 .vaciarComprar {
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center; 
+}
+
+#vaciarCarrito {
+    width: 20%;
+    margin-right: 1rem;
+}
+
+#comprarCarrito {
+    width: 20%;
+    margin-left: 1rem;
 }
