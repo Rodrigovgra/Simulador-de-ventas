@@ -26,26 +26,15 @@ const productos = [
     },
 ];
 
-// Inicializa el valor del carrito en 0
-let carrito = 0;
-
 // Obtiene los contenedores necesarios del DOM
 const contenedorProductos = document.getElementById("contenedorProductos");
-const numero = document.getElementById("numero")
-// const funcionesCarrito = document.getElementById("funciones-carrito");
-// const totalCarrito = document.getElementById("totalCarrito");
-// const vaciarCarrito = document.getElementById("vaciarCarrito");
-// const comprarCarrito = document.getElementById("comprarCarrito");
+const numero = document.getElementById("numero");
 
 // Funcion para agregar las tarjetas de productos al contenedor de productos
 function subirProductos() {
     productos.forEach((producto) => {
         const container = document.createElement("div");
         container.classList.add("tarjeta");
-        // const imagen = document.createElement("img");
-        // imagen.src = producto.img;
-        // imagen.classList.add("imagenesProductos");
-        // container.appendChild(imagen);
         container.innerHTML += `
         <img class="imagenesProductos" src="${producto.img}" alt="${producto.nombre}">
         <h2>${producto.nombre}</h2>
@@ -66,9 +55,38 @@ botonAgregar.forEach(boton => {
 });
 
 //Declaramos un array para almacenar los productos en el carrito
-const productosCarrito = [];
+let productosCarrito;
+let productosCarritoLs = localStorage.getItem("productosEnCarrito");
+
+if (productosCarritoLs){
+    productosCarrito = JSON.parse(productosCarritoLs);
+    actualizarNumero();
+} else {
+    productosCarrito = [];
+}
+
 //Funcion que contiene la accion del boton agregar al carrito 
 function agregarAlCarrito(e) {
+
+    Toastify({
+        text: "Producto agregado",
+        duration: 3000,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to left, #413131, #6e5a5a)",
+          borderRadius: "0.375rem",
+          textTransform: "uppercase",
+          fontSize: ".75rem"
+        },
+        offset: {
+            x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+          },
+        onClick: function(){} // Callback after click
+      }).showToast();
 
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === parseInt(idBoton))
@@ -89,35 +107,4 @@ function actualizarNumero() {
     let nuevoNumero = productosCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
     numero.innerText = nuevoNumero;
 }
-
-
-// // Función para vaciar el carrito y el valor en el almacenamiento local
-// function vaciarCarritoFuncion() {
-//     carrito = 0;
-//     totalCarrito.innerText = "Total en el carrito: $0";
-//     localStorage.removeItem("carrito");
-//     actualizarBotones();
-// }
-
-// // Recupera el valor del carrito del almacenamiento local al cargar la página
-// const carritoGuardado = localStorage.getItem("carrito");
-
-// // Agrega eventos a los botones para agregar al carrito y vaciar el carrito
-
-// agregarProductos.forEach((boton) => {
-//     boton.addEventListener("click", (event) => {
-//         agregarAlCarrito(boton);
-//     });
-// });
-
-// vaciarCarrito.addEventListener("click", () => {
-//     vaciarCarritoFuncion();
-// });
-
-// comprarCarrito.addEventListener("click", () => {
-//     alert("Gracias por su compra!");
-//     vaciarCarritoFuncion();
-// });
-
-
 

@@ -1,0 +1,2 @@
+casi todo esta completo, falta aplicar algunas cosas 
+usar asincronismo para demorar la funcion de vaciar carrito cuando presiono en comprar carrito

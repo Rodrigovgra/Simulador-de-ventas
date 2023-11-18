@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
     <title>PFVillagra</title>
     <link rel="shortcut icon" href=".//img/logo1.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./style.css">
 
 </head>
 
@@ -41,41 +42,12 @@
 
         <div id="contenedorCarrito">
 
-            <p id="carritoVacio">Tu carrito está vacío.</p>
+            <p id="carritoVacio">Tu carrito está vacío!</p>
 
+            <div id="productos-carrito" class="productos-carrito disabled">
 
-            <div class="productosCarrito disabled">
-
-                <img class="producto-carrito-img" src="./img/Mesa-ratona.jpg" alt="">
-
-                <div class="producto-carrito-nombre">
-                    <p> Nombre </p>
-                    <h3> Mesa Ratona</h3>
-                </div>
-
-                <div class="producto-carrito-cantidad">
-                    <p> Cantidad </p>
-                    <p>1</p>
-                </div>
-    
-                <div class="producto-carrito-precio">
-                    <p>Precio</p>
-                    <p>$50000</p>
-                </div>
-      
-                <div class="producto-carrito-subtotal">
-                    <p>Subtotal</p>
-                    <p>$100000</p>
-                </div>
-
-
-                <button class="producto-carrito-eliminar boton">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="28" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                        <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
-                    </svg>
-                </button>
             </div>
-                
+
             <div id="funciones-carrito" class="funciones-carrito disabled">
 
                 <div class="funciones-carrito-izquierda">
@@ -87,13 +59,15 @@
 
                     <div class="funciones-carrito-total">
                         <p>Total:</p>
-                        <p id="totalCarrito">$0</p>
+                        <p id="totalCarrito"></p>
                     </div>
 
                     <button id="funciones-carrito-comprar" class="funciones-carrito-comprar boton">Comprar Carrito</button>
                     
                 </div>
             </div>
+
+            <p id="compra-realizada" class="compraRealizada disabled">Gracias por su compra!</p>
             
         </div>
 
@@ -102,7 +76,9 @@
         
     </main>
 
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="sweetalert2.all.min.js"></script> -->
     <script src="./js/carrito.js"></script>
 </body>
 
