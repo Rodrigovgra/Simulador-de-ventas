@@ -1,0 +1,26 @@
+[   
+    {
+        "id": 1,
+        "nombre": "Mesa Ratona",
+        "precio": 30000,
+        "img": "./img/Mesa-ratona.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Sillon Doble",
+        "precio": 60000,
+        "img": "./img/sillondoble.jpeg"
+    },
+    {
+        "id": 3,
+        "nombre": "Sillon de Paraiso",
+        "precio": 40000,
+        "img": "./img/Simple-2.jpeg"
+    },
+    {
+        "id": 4,
+        "nombre": "Sillon de Petribi",
+        "precio": 50000,
+        "img": "./img/simple.jpeg"
+    }
+]

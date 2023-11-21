@@ -1,32 +1,15 @@
-// Declara un array de objetos para los productos
-const productos = [
-    {
-        id: 1,
-        nombre: "Mesa Ratona",
-        precio: 30000,
-        img: "./img/Mesa-ratona.jpg",
-    },
-    {
-        id: 2,
-        nombre: "Sillon Doble",
-        precio: 60000,
-        img: "./img/sillondoble.jpeg",
-    },
-    {
-        id: 3,
-        nombre: "Sillon de Paraiso",
-        precio: 40000,
-        img: "./img/Simple-2.jpeg",
-    },
-    {
-        id: 4,
-        nombre: "Sillon de Petribi",
-        precio: 50000,
-        img: "./img/simple.jpeg",
-    },
-];
+// Declaro un array para los productos
+let productos = [];
 
-// Obtiene los contenedores necesarios del DOM
+// Creo un fetch para traer el array almacenado en el json local
+fetch ("js/productos.json")
+    .then(res => res.json())
+    .then(data => {
+    productos = data;
+    subirProductos(productos);
+});
+
+// Accedo a los elementos necesarios del DOM
 const contenedorProductos = document.getElementById("contenedorProductos");
 const numero = document.getElementById("numero");
 
@@ -43,38 +26,46 @@ function subirProductos() {
         `;
         contenedorProductos.appendChild(container);
     });
+    actualizarBotonesAgregar()
+    //llamo a la funcion para que cada vez que se ejecute la funcion subirProductos se asigne tambien la funcion de agregarAlCarrito
 }
 
-subirProductos()
+//Creo la funcion para asignarle un evento a los botones de agregar al carrito, lo hago mediante funcion para poder llamarla cada vez que se creen las tarjetas
+function actualizarBotonesAgregar() {
+    //llamado de todos los botones de agregar al carrito
+    const botonAgregar = document.querySelectorAll(".boton");
+    // Función para asignar la accion de agregar productos al carrito a los botones
+    botonAgregar.forEach(boton => {
+        boton.addEventListener("click", agregarAlCarrito);
+    });
+}
 
-//llamado del boton para agregar al carrito
-const botonAgregar = document.querySelectorAll(".boton");
-// Función para asignar la accion de agregar productos al carrito
-botonAgregar.forEach(boton => {
-    boton.addEventListener("click", agregarAlCarrito);
-});
-
-//Declaramos un array para almacenar los productos en el carrito
+//Declaro la variable sin un valor especifico
 let productosCarrito;
+
+//Hago un llamado al carrito del localStorage y lo almaceno en la variable productosCarritoLs
 let productosCarritoLs = localStorage.getItem("productosEnCarrito");
 
+//Si productosCarritoLs tiene contenido parseo la info y se la asigno a la variable de productosCarrito
 if (productosCarritoLs){
     productosCarrito = JSON.parse(productosCarritoLs);
+    //llamo a la funcion para actualizar el numero del carrito
     actualizarNumero();
 } else {
+    //si no hay info en localStorage se inicia productosCarrito como una arreglo vacio
     productosCarrito = [];
 }
 
 //Funcion que contiene la accion del boton agregar al carrito 
 function agregarAlCarrito(e) {
-
+    //Agrego un toast cada vez que se agrega un producto al carrito
     Toastify({
         text: "Producto agregado",
         duration: 3000,
         close: true,
-        gravity: "bottom", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
+        gravity: "bottom", 
+        position: "right", 
+        stopOnFocus: true, 
         style: {
           background: "linear-gradient(to left, #413131, #6e5a5a)",
           borderRadius: "0.375rem",
@@ -82,27 +73,31 @@ function agregarAlCarrito(e) {
           fontSize: ".75rem"
         },
         offset: {
-            x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-            y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+            x: '1.5rem', 
+            y: '1.5rem' 
           },
-        onClick: function(){} // Callback after click
-      }).showToast();
-
+        onClick: function(){} 
+    }).showToast();
+    // Obtengo el id del botón para reconocer el producto que se agrega al carrito
     const idBoton = e.currentTarget.id;
+    //busco el id del producto mediante un find
     const productoAgregado = productos.find(producto => producto.id === parseInt(idBoton))
-
+    //verifico si el producto ya está en el carrito
     if(productosCarrito.some(producto => producto.id === parseInt(idBoton))) {
+        //si el producto ya esta en el carrito aumento su cantidad
         const index = productosCarrito.findIndex(producto => producto.id === parseInt(idBoton))
         productosCarrito[index].cantidad++;
     } else {
+        //si no esta en el carrito lo agrego con la cantidad 1
         productoAgregado.cantidad = 1;
         productosCarrito.push(productoAgregado);
     }
+    //se actualiza el numero del carrito y se guarda la info en el localStorage
     actualizarNumero();
-
     localStorage.setItem("productosEnCarrito", JSON.stringify(productosCarrito));
 }
 
+//Funcion para actualizar el numero del carrito mediante un reduce
 function actualizarNumero() {
     let nuevoNumero = productosCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
     numero.innerText = nuevoNumero;

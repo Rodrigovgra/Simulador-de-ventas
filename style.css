@@ -28,7 +28,7 @@ header {
 #headerCarrito {
     grid-template-columns: 0.3fr 1.4fr 0.3fr;
 }
-
+/* header botones */
 .seguirComprando {
     display: flex;
     justify-content: center;
@@ -36,12 +36,10 @@ header {
     align-items: center;
     justify-content: center;
 }
-
 .seguirComprando:hover {
     background-color: #3b2d2d;
     transition-delay: 10ms;
 }
-
 .scBtn {
     display: flex;
     font-size: 1.3rem;
@@ -53,7 +51,6 @@ header {
     justify-content: space-evenly;
     align-items: center;
 }
-
 .btn {
     background-color: transparent;
     color: #fff;
@@ -62,8 +59,7 @@ header {
     border: none
 }
 
-
-
+/* numero del carrito */
 .numero {
     border-radius: .5rem;
     padding: .2rem;
@@ -71,6 +67,7 @@ header {
     color: #fff;
 }
 
+/* PRODUCTOS */
 #contenedorProductos {
     display: flex;
     justify-content: space-around;
@@ -102,8 +99,8 @@ header {
     display: none!important;
 }
 
+/* contenedor de todo el carrito */
 #contenedorCarrito {
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,7 +110,6 @@ header {
     height: auto;
     margin: 0 auto;
 }
-
 #carritoVacio {
     background: linear-gradient(to right, #413131, #6e5a5a);
     border-radius: .35rem;
@@ -122,8 +118,8 @@ header {
     font-weight: 500;
     box-shadow: 5px 5px 10px 0 rgba(126, 126, 126, 0.774);
 }
-/* productos */
 
+/* contenedor de los productos */
 .productos-carrito {
     display: flex;
     flex-direction: column;
@@ -132,21 +128,20 @@ header {
     width: 100%;
 }
 
+/* tarjeta de productos en el carrito */
 .productoCarrito {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     width: 90%;
     background: linear-gradient(to right, #413131, #6e5a5a);
     border-radius: .5rem;
     padding: 1rem;
     box-shadow: 5px 5px 10px 0 rgba(126, 126, 126, 0.774);
 }
-
 .producto-carrito-img {
     width: 6rem;
     border-radius: 1rem;
 }
-
 .producto-carrito-eliminar {
     margin-top: 30px;
     background-color: transparent!important;
@@ -162,25 +157,21 @@ header {
     border: rgba(68, 68, 68, 0.774);
     cursor: pointer;
 }
-
 #funciones-carrito {
     display: flex;
     width: 35%;
     align-items: center;
     justify-content: space-between;
 }
-
 .funciones-carrito-derecha {
     display: flex;
     align-items: center;
     width: 13rem;
     justify-content: flex-end;
 }
-
 .funciones-carrito-vaciar {
     background-color: #726161;
 }
-
 .funciones-carrito-total {
     display: flex;
     align-items: center;
@@ -191,7 +182,6 @@ header {
     font-size: small;
     background-color: #5a4545;
 }
-
 .funciones-carrito-comprar { 
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;

@@ -5,30 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PFVillagra</title>
-    <link rel="shortcut icon" href=".//img/logo1.png" type="image/x-icon">
+    <link rel="shortcut icon" href=".//img/logo1.png">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="./style.css">
-
 </head>
 
 <body id="body">
-
     <header id="headerCarrito">
-
         <a href="./index.html" class="seguirComprando">
             <i class="scBtn"> ↩ Seguir <br> comprando </i>
         </a>
-
         <h1> CARRITO </h1>
-
         <div class="headerBtns">
-            <button class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                    class="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                    <path fill-rule="evenodd"
-                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                </svg>
-            </button>
             <button class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                     class="bi bi-cart" viewBox="0 0 16 16">
                     <path
@@ -39,46 +27,28 @@
     </header>
 
     <main>
-
         <div id="contenedorCarrito">
-
             <p id="carritoVacio">Tu carrito está vacío!</p>
-
             <div id="productos-carrito" class="productos-carrito disabled">
-
+                <!-- JS -->
             </div>
-
             <div id="funciones-carrito" class="funciones-carrito disabled">
-
                 <div class="funciones-carrito-izquierda">
                     <button id="funciones-carrito-vaciar" class="funciones-carrito-vaciar boton">Vaciar Carrito</button>
                 </div>
-                 
-
                 <div class="funciones-carrito-derecha">
-
                     <div class="funciones-carrito-total">
                         <p>Total:</p>
                         <p id="totalCarrito"></p>
                     </div>
-
                     <button id="funciones-carrito-comprar" class="funciones-carrito-comprar boton">Comprar Carrito</button>
-                    
                 </div>
             </div>
-
-            <p id="compra-realizada" class="compraRealizada disabled">Gracias por su compra!</p>
-            
         </div>
-
-        
-
-        
     </main>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- <script src="sweetalert2.all.min.js"></script> -->
     <script src="./js/carrito.js"></script>
 </body>
 
